@@ -16,6 +16,7 @@ public class Main {
         if(args.length<2){
             System.out.println("Please fill out your arguments as follows");
             System.out.println("<Filter file path> <Direction in which to filter your credentials (hide|show)>");
+            System.exit(0);
         }
         if (args[1].equals("hide")){
             FilterAction(2,1, args[0]);
@@ -24,6 +25,7 @@ public class Main {
         }else{
             System.out.println("Please choose an option for argument 2!");
             System.out.println("<Direction in which to filter (hide|show)>");
+            System.exit(0);
         }
     }
 
@@ -35,9 +37,8 @@ public class Main {
             System.out.println("Your file did not exist :(");
             System.out.println(FileLocation);
             System.out.println("Please pass the path to your file as the first argument!");
-            e.printStackTrace();
+            System.exit(0);
         }
-        assert scanner != null;
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             // process the line
@@ -49,13 +50,14 @@ public class Main {
                 content = new String(Files.readAllBytes(File), charset);
             } catch (IOException e) {
                 e.printStackTrace();
+                System.exit(0);
             }
-            assert content != null;
             content = content.replace(SingleLine[from], SingleLine[to]);
             try {
                 Files.write(File, content.getBytes(charset));
             } catch (IOException e) {
                 e.printStackTrace();
+                System.exit(0);
             }
         }
     }
