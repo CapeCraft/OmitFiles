@@ -15,6 +15,8 @@ public class Filter {
         try {
             content = new String(Files.readAllBytes(File), charset);//places file path into a content buffer
         } catch (IOException e) {
+            System.out.println("Your target file to filter does not exist!");
+            System.out.println(File.toString());//Prints attempted file path
             e.printStackTrace();
             System.exit(0);//Exits the jvm after error
         }
@@ -22,6 +24,8 @@ public class Filter {
         try {
             Files.write(File, content.getBytes(charset));//Writes modified content buffer
         } catch (IOException e) {
+            System.out.println("The program failed to write the filtered file!");
+            System.out.println(File);//Prints attempted file path
             e.printStackTrace();
             System.exit(0);//Exits the jvm after error
         }
