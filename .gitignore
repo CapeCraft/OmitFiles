@@ -27,3 +27,6 @@ hs_err_pid*
 out
 src/META-INF
 *.iml
+JSONFilterText.json
+SurvivalFilter.txt
+plugins
