@@ -30,4 +30,4 @@ src/META-INF
 JSONFilterText.json
 SurvivalFilter.txt
 plugins
-/target/
+/target
