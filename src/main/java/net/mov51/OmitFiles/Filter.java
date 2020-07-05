@@ -30,19 +30,22 @@ public class Filter {
         } catch (IOException e) {
             Log.error("Your target file to filter does not exist!");
             Log.error(File.toString());//Prints attempted file path
-            e.printStackTrace();
-            System.exit(0);//Exits the jvm after error
         }
         Log.debug("Content filter is " + filter);
         Log.debug("Content replacement is " + replacement);
-        content = content.replace(filter, replacement);//Replaces value 1 "from" with Value 2 "to"
+        if (content != null) {
+            content = content.replace(filter, replacement);//Replaces value 1 "from" with Value 2 "to"
+        }else{
+            Log.error("File To Filter \"" + FilePath + "\" is empty");
+            Log.error("It will not be filtered");
+        }
+
         try {
+            assert content != null;
             Files.write(File, content.getBytes(charset));//Writes modified content buffer
         } catch (IOException e) {
             Log.error("The program failed to write the filtered file!");
             Log.error(File);//Prints attempted file path
-            e.printStackTrace();
-            System.exit(0);//Exits the jvm after error
         }
 
     }
