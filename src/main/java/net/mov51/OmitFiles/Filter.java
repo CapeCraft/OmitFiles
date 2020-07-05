@@ -1,6 +1,5 @@
 package net.mov51.OmitFiles;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
@@ -30,7 +29,7 @@ public class Filter {
             content = new String(Files.readAllBytes(File), charset);//places file path into a content buffer
         } catch (IOException e) {
             Log.error("Your target file to filter does not exist!");
-            System.out.println(File.toString());//Prints attempted file path
+            Log.error(File.toString());//Prints attempted file path
             e.printStackTrace();
             System.exit(0);//Exits the jvm after error
         }
@@ -41,7 +40,7 @@ public class Filter {
             Files.write(File, content.getBytes(charset));//Writes modified content buffer
         } catch (IOException e) {
             Log.error("The program failed to write the filtered file!");
-            System.out.println(File);//Prints attempted file path
+            Log.error(File);//Prints attempted file path
             e.printStackTrace();
             System.exit(0);//Exits the jvm after error
         }

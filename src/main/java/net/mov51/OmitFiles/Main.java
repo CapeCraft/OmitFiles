@@ -44,8 +44,8 @@ public class Main {
             //Key is the credential used when the program starts
             JSONtools.Parse("key","filter", args[0]);//Passes replacement order to the FilterAction method
         }else{//If no values match then print help and exit
-            System.out.println("Please choose an option for argument 2!");
-            System.out.println("<Direction in which to filter (hide|show)>");
+            Log.error("Please choose an option for argument 2!");
+            Log.info("<Direction in which to filter (hide|show)>");
             System.exit(0);//Exits the jvm after error
         }
     }
