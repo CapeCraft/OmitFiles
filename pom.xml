@@ -35,7 +35,7 @@
 
     <groupId>net.mov51.OmitFiles</groupId>
     <artifactId>OmitFiles</artifactId>
-    <version>1.1-SNAPSHOT-DEV</version>
+    <version>1.2</version>
     <build>
         <plugins>
             <plugin>
@@ -60,6 +60,7 @@
                             <mainClass>net.mov51.OmitFiles.Main</mainClass>
                         </manifest>
                     </archive>
+                    <appendAssemblyId>false</appendAssemblyId>
                 </configuration>
                 <executions>
                     <execution>
