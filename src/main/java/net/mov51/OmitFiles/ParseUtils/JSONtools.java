@@ -27,7 +27,7 @@ public class JSONtools {
             e.printStackTrace();
             System.exit(0);//Exits the jvm after error
         }
-        log.info("File found");
+        log.info("Provided JSON file found");
         JsonArray rootObj = JsonParser.parseReader(reader).getAsJsonArray();//Parses the reader into a JsonArray
         for (JsonElement element : rootObj.getAsJsonArray()) {//Loops through each element in the json array
             log.debug("Json object is " + element);
